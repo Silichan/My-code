@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบลงทะเบียนผู้ใช้งาน</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #219150;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 10px;
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>ระบบลงทะเบียนผู้ใช้งาน</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="username">ชื่อผู้ใช้งาน</label>
+        <input type="text" id="username" placeholder="กรอกชื่อผู้ใช้งาน" required>
+      </div>
+      <div class="form-group">
+        <label for="email">อีเมล</label>
+        <input type="email" id="email" placeholder="กรอกอีเมล" required>
+      </div>
+      <div class="form-group">
+        <label for="password">รหัสผ่าน</label>
+        <input type="password" id="password" placeholder="กรอกรหัสผ่าน" required>
+      </div>
+      <button type="submit">ลงทะเบียน</button>
+    </form>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const messageDiv = document.getElementById('message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // ป้องกันการรีเฟรชหน้าเว็บ
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (username && email && password) {
+        // เก็บข้อมูลลงใน localStorage
+        const user = { username, email, password };
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // แสดงข้อความยืนยันการลงทะเบียนสำเร็จ
+        messageDiv.textContent = "ลงทะเบียนสำเร็จ!";
+        messageDiv.style.color = '#2ecc71'; // สีเขียว
+
+        // เคลียร์ฟอร์ม
+        form.reset();
+      } else {
+        messageDiv.textContent = "กรุณากรอกข้อมูลให้ครบถ้วน!";
+        messageDiv.style.color = '#e74c3c'; // สีแดง
+      }
+    });
+  </script>
+</body>
+</html>
