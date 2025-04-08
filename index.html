@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Silichan - หน้าแนะนำตัว</title>
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      margin: 0;
+      background: #e3f2fd;
+      color: #333;
+    }
+
+    header {
+      background: #1565c0;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background: #0d47a1;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 400px;
+    }
+
+    .card img {
+      width: 130px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      margin: 5px 0;
+    }
+
+    .social {
+      margin-top: 20px;
+    }
+
+    .social a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #1565c0;
+      font-weight: bold;
+    }
+
+    .social a:hover {
+      color: #0d47a1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #bbdefb;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ยินดีต้อนรับสู่หน้าแนะนำตัวของ Silichan</h1>
+  </header>
+
+  <nav>
+    <a href="#about">เกี่ยวกับฉัน</a>
+    <a href="#skills">ทักษะ</a>
+    <a href="#contact">ติดต่อ</a>
+  </nav>
+
+  <div class="container">
+    <div class="card" id="about">
+      <img src="https://i.imgur.com/8Km9tLL.png" alt="Silichan">
+      <h2>สิริจันทร์ อินทะวง</h2>
+      <div class="info">
+        <p>ตำแหน่ง: เจ้าหน้าที่ IT & นักวิเคราะห์ข้อมูล</p>
+        <p>บริษัท: Vari Company Limited</p>
+        <p>ความสนใจ: การพัฒนาโปรแกรม • การวิเคราะห์ข้อมูล • UX/UI Design</p>
+      </div>
+
+      <div class="social" id="contact">
+        <a href="mailto:silichan@example.com">Email</a>
+        <a href="https://github.com/silichan" target="_blank">GitHub</a>
+        <a href="https://facebook.com/silichan" target="_blank">Facebook</a>
+        <a href="https://vari.com/projects" target="_blank">ผลงาน</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Silichan. All rights reserved.
+  </footer>
+
+</body>
+</html>
